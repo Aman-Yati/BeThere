@@ -1,8 +1,8 @@
-# 🎟️ SeatDibs
+# 🎟️ BeThere
 
 **Find it. Book it. Be there.**
 
-SeatDibs is a full-stack event ticket booking platform for universities. Students browse events, book a ticket, and receive a QR code by email. Admins create events, see who is coming, and check tickets in at the door.
+BeThere is a full-stack event ticket booking platform for universities. Students browse events, book a ticket, and receive a QR code by email. Admins create events, see who is coming, and check tickets in at the door.
 
 The interesting part is the backend: every seat is sold exactly once, even when hundreds of people book the last seats at the same moment. Bookings are safe to retry, emails never slow a booking down, and every ticket works exactly once at check-in.
 
@@ -52,7 +52,7 @@ _TODO: add 2 or 3 screenshots (event list, ticket with QR code, admin check-in).
 
 ### The overselling problem
 
-If two people book the last seat at the same time, a naive "read the seat count, check it, then write it back" lets both succeed. SeatDibs avoids this by doing the check and the update in one atomic SQL statement:
+If two people book the last seat at the same time, a naive "read the seat count, check it, then write it back" lets both succeed. BeThere avoids this by doing the check and the update in one atomic SQL statement:
 
 ```sql
 UPDATE events
@@ -160,8 +160,8 @@ Base path `/api`. Full interactive documentation is available in Swagger UI at `
 ### Run everything with Docker
 
 ```bash
-git clone https://github.com/Aman-Yati/SeatDibs.git
-cd SeatDibs
+git clone https://github.com/Aman-Yati/BeThere.git
+cd BeThere
 cp .env.example .env
 docker compose up --build
 ```
@@ -236,9 +236,9 @@ The health endpoint `/actuator/health` is used for the platform's health check.
 ## Project structure
 
 ```
-SeatDibs/
+BeThere/
 ├── backend/
-│   └── src/main/java/com/seatdibs/
+│   └── src/main/java/com/bethere/
 │       ├── controller/   REST controllers
 │       ├── service/      Business logic and transactions
 │       ├── repository/   Spring Data JPA repositories
